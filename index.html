@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Моей любимой ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(145deg, #1e0b1a 0%, #3a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Arial, system-ui, sans-serif;
+            padding: 16px;
+        }
+        .card {
+            max-width: 480px;
+            width: 100%;
+            background: rgba(255, 245, 240, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 60px 20px 60px 20px;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.7), 0 0 0 2px #ffb6c9 inset;
+            padding: 28px 22px 36px;
+            text-align: center;
+            border: 1px solid #ffd9e6;
+        }
+        .greeting-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+        .greeting-screen h1 {
+            font-size: 2.4rem;
+            font-weight: 300;
+            color: #490f2b;
+            text-shadow: 0 2px 12px #ffb0c8;
+            font-family: Georgia, serif;
+        }
+        .greeting-screen .sub {
+            font-size: 1.3rem;
+            color: #631f3a;
+            background: rgba(255,200,220,0.5);
+            padding: 8px 22px;
+            border-radius: 60px;
+            border: 1px solid #ff9bb8;
+        }
+        .heart-icon {
+            font-size: 4.2rem;
+            animation: floatHeart 3s infinite alternate ease-in-out;
+        }
+        @keyframes floatHeart {
+            0% { transform: scale(1) rotate(-2deg); }
+            100% { transform: scale(1.08) rotate(2deg); }
+        }
+        .btn-primary {
+            background: #a13a5a;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff4f0;
+            box-shadow: 0 6px 0 #4d1a2b;
+            cursor: pointer;
+            border: 1px solid #ffb7cf;
+        }
+        .btn-primary:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 #4d1a2b;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .animation-area {
+            min-height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 14px 0 10px;
+        }
+        .heart-rain {
+            font-size: 3.4rem;
+            animation: popSparkle 1.2s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+            letter-spacing: 10px;
+        }
+        @keyframes popSparkle {
+            0% { opacity: 0; transform: scale(0.2) rotate(-10deg); }
+            40% { opacity: 1; transform: scale(1.6) rotate(6deg); }
+            70% { transform: scale(0.95) rotate(-2deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); }
+        }
+        .wish-container {
+            background: rgba(80,25,45,0.08);
+            backdrop-filter: blur(2px);
+            border-radius: 60px 16px 60px 16px;
+            padding: 22px 14px;
+            margin: 18px 0 8px;
+            border: 1px solid #ffb0c8;
+            box-shadow: 0 8px 0 #651f38;
+        }
+        .wish-text {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: #2a0a16;
+            font-family: Georgia, serif;
+            min-height: 4.2rem;
+        }
+        .btn-wish {
+            background: #7b2d48;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 60px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #fff0ed;
+            box-shadow: 0 5px 0 #3f1727;
+            cursor: pointer;
+            border: 1px solid #f7a7c2;
+        }
+        .btn-wish:active {
+            transform: translateY(5px);
+            box-shadow: 0 1px 0 #3f1727;
+        }
+        .btn-secondary {
+            background: #b35b78;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff4f0;
+            box-shadow: 0 5px 0 #632b40;
+            cursor: pointer;
+            border: 1px solid #fbc1d6;
+        }
+        .btn-secondary:active {
+            transform: translateY(5px);
+            box-shadow: 0 1px 0 #632b40;
+        }
+        .footer-small {
+            margin-top: 18px;
+            font-size: 0.8rem;
+            color: #551f32;
+            opacity: 0.7;
+        }
+        @media (max-width: 440px) {
+            .card { padding: 20px 14px 28px; }
+            .greeting-screen h1 { font-size: 2rem; }
+            .wish-text { font-size: 1.4rem; }
+            .btn-primary { font-size: 1.2rem; padding: 14px 28px; }
+        }
+    </style>
+</head>
+<body>
+<div class="card" id="appCard">
+    <div id="greetingScreen" class="greeting-screen">
+        <div class="heart-icon">🌸💖🌸</div>
+        <h1>Моей любимой</h1>
+        <div class="sub">✨ самой нежной ✨</div>
+        <button class="btn-primary" id="startBtn">➤ Открыть пожелание</button>
+        <div style="font-size: 0.9rem; color: #631f37; margin-top: 8px;">нажми, и увидишь ✨</div>
+    </div>
+    <div id="mainBlock" class="hidden">
+        <div class="animation-area">
+            <div class="animation-box" id="animationBox"></div>
+        </div>
+        <div class="wish-container" id="wishContainer">
+            <div class="wish-text" id="wishText">💕 Ты — моё вдохновение 💕</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 12px 0 4px;">
+            <button class="btn-wish" id="nextWishBtn">🎲 Следующее</button>
+            <button class="btn-secondary" id="resetBtn">⟲ Заново</button>
+        </div>
+        <div class="footer-small">из 10 пожеланий • для тебя</div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var wishes = [
+        "Ты — свет, который согревает мои дни. ✨",
+        "С каждым днём я люблю тебя всё сильнее. 💖",
+        "Твоя улыбка — лучшее лекарство для души. 🌸",
+        "Ты делаешь мир ярче просто тем, что существуешь. 🌷",
+        "Я бесконечно благодарен судьбе за тебя. 🍀",
+        "Ты — самое прекрасное, что случилось со мной. 🌹",
+        "Рядом с тобой я чувствую себя дома. 🏡",
+        "Твои глаза — как звёзды, в них хочется смотреть вечно. ✨",
+        "Спасибо, что ты есть. Ты — моя радость. 💫",
+        "Я люблю тебя больше, чем все слова на свете. ❤️"
+    ];
+
+    var greetingScreen = document.getElementById('greetingScreen');
+    var mainBlock = document.getElementById('mainBlock');
+    var startBtn = document.getElementById('startBtn');
+    var wishTextEl = document.getElementById('wishText');
+    var nextWishBtn = document.getElementById('nextWishBtn');
+    var resetBtn = document.getElementById('resetBtn');
+    var animationBox = document.getElementById('animationBox');
+
+    var isFirstOpen = true;
+    var animationTimer = null;
+
+    function getRandomWishIndex() {
+        return Math.floor(Math.random() * wishes.length);
+    }
+
+    function showRandomWish() {
+        wishTextEl.textContent = wishes[getRandomWishIndex()];
+    }
+
+    function runAnimation() {
+        if (animationTimer) {
+            clearTimeout(animationTimer);
+            animationTimer = null;
+        }
+
+        var symbols = ['❤️', '🌸', '✨', '💕', '🌺', '💖', '🦋', '🌷', '💗', '🌟'];
+        var shuffled = symbols.sort(function() { return Math.random() - 0.5; });
+        var chosen = shuffled.slice(0, 5 + Math.floor(Math.random() * 3));
+
+        var html = '<div class="heart-rain">';
+        for (var i = 0; i < chosen.length; i++) {
+            html += '<span style="display:inline-block; animation: popSparkle 1.1s ' + (i * 0.12) + 's cubic-bezier(0.2, 0.9, 0.3, 1.2) both;">' + chosen[i] + '</span>';
+        }
+        html += '</div>';
+
+        animationBox.innerHTML = html;
+
+        animationTimer = setTimeout(function() {
+            animationBox.innerHTML = '<div style="font-size: 2.2rem; letter-spacing: 6px; opacity:0.7;">💞 ✨ 💞</div>';
+            animationTimer = null;
+        }, 1800);
+    }
+
+    function openMainScreen() {
+        greetingScreen.classList.add('hidden');
+        mainBlock.classList.remove('hidden');
+        if (isFirstOpen) {
+            showRandomWish();
+            runAnimation();
+            isFirstOpen = false;
+        } else {
+            showRandomWish();
+            runAnimation();
+        }
+    }
+
+    function resetToGreeting() {
+        if (animationTimer) {
+            clearTimeout(animationTimer);
+            animationTimer = null;
+        }
+        greetingScreen.classList.remove('hidden');
+        mainBlock.classList.add('hidden');
+        isFirstOpen = true;
+        animationBox.innerHTML = '';
+        wishTextEl.textContent = '💕 Ты — моё вдохновение 💕';
+    }
+
+    startBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openMainScreen();
+    });
+
+    nextWishBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        showRandomWish();
+        runAnimation();
+    });
+
+    resetBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        resetToGreeting();
+    });
+
+    greetingScreen.classList.remove('hidden');
+    mainBlock.classList.add('hidden');
+    wishTextEl.textContent = '💕 Ты — моё вдохновение 💕';
+})();
+</script>
+</body>
+</html>
